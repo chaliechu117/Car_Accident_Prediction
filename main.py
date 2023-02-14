@@ -39,6 +39,8 @@ st.markdown('---')
 # st.subheader('Dataset Sample')
 # st.write(df.head())
 
+st.markdown('##')
+st.subheader('기술통계값')
 a = st.selectbox( 'Select Feature', ['사망자수', '중상자수', '경상자수', '부상신고자수', '사고유형', '법규위반','기상상태', '도로형태'])
 if a in ['사망자수', '중상자수', '경상자수', '부상신고자수']:
     desc = pd.DataFrame(df[a].describe()).T
