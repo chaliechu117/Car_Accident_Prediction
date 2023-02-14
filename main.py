@@ -21,7 +21,7 @@ df = pd.read_pickle('data/taas+weather.pkl')
 days = st.multiselect('무슨 요일이 궁금해요?', df['요일'].unique())
 place = st.multiselect('어느 지점이 궁금해요?', df['지점'].unique())
 new_df = df[(df['요일'].isin(days)) & (df['지점'].isin(place))]
-stl.write(new_df)
+st.write(new_df)
 
 # For EDA
 # df = pd.read_pickle('data/taas+weather.pkl')
