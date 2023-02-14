@@ -32,7 +32,7 @@ if c == '사고유형별 사망자수 비율':
     tmp = df.groupby('사고유형').sum()[['사망자수', '중상자수','경상자수']]
     tmp['death_ratio'] = tmp['사망자수']/(tmp['사망자수'] + tmp['중상자수'] + tmp['경상자수'])
     tmp['death_ratio'] = tmp['death_ratio'] * 100
-    fit = px.bar(data_frame=tmp,
+    fig = px.bar(data_frame=tmp,
                  x = tmp['death_ratio'].sort_values(ascending=False).index,
                  y = tmp['death_ratio'].sort_values(ascending=False),
                  color = tmp['death_ratio'].sort_values(ascending=False).index
