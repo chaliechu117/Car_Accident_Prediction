@@ -13,7 +13,7 @@ st.subheader('변수 선태')
 
 #경찰청 구분
 NPA_CL_dic = {"충남청":19, "대전청":13,"세종청": 31}
-NPA = st.selectbox('경찰청 구분'. ['충남청','대전청','세종청'])
+NPA = st.selectbox('경찰청 구분', ['충남청','대전청','세종청'])
 location = NPA_CL_dic[NPA]
 
 #사건상태 : "무조건 10으로 넣기"
