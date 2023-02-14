@@ -85,7 +85,7 @@ if st.button("예측하기"):
         model.fit(X_train, y_train)
         valid_predict = model.predict(X_test)
         result = model.predict(test_data)
-    answer = result.iloc[0][0]
+    answer = result[0]
 #     st.write("Validation RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
     st.subheader(f'모델로 예측한 결과 현재 교통사고 위험레벨은 {answer} 입니다.')
     
