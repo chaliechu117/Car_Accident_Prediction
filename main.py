@@ -12,26 +12,16 @@ df = pd.read_pickle('data/taas+weather.pkl')
 st.title("기상별 교통사고 위험율 예측")
 st.header("추음새 조")
 st.header("About the Data")
-st.markdown('''
-The data has following features : 
 
-Independent value
-- __시군구__ 
-- __사망자수__
-- __중상자수__
-- __경상자수__ 
-- __부상신고자수__ 
-- __사고유형__ 
-- __법규위반__ 
-- __노면상태__ 
-- __기온__
-- __강수량__ 
-- __풍속__
-- __풍향__
-- __습도__ 
-- __적설__ 
-- __전운량__ 
-- __지면온도__ 
-- __시정__ 
+st.markdown('##')
+st.subheader('Dataset Sample')
+st.write(df.head())
 
-''')
+a = st.selectbox( 'Select Feature', ['사망자수', '중상자수', '경상자수', '부상신고자수', '사고유형', '법규위반','기상상태', '도로형태'])
+if a in ['사망자수', '중상자수', '경상자수', '부상신고자수']:
+    desc = pd.DataFrame(df[a].describe()).T
+    st.dataframe(desc)
+else:
+    desc = pd.DataFrame(df[a].value_counts()).T
+    st.dataframe(desc)
+  
