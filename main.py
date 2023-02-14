@@ -24,4 +24,17 @@ if a in ['사망자수', '중상자수', '경상자수', '부상신고자수']:
 else:
     desc = pd.DataFrame(df[a].value_counts())
     st.dataframe(desc)
-  
+    
+st.markdown('##')
+st.subheader('Check Graph')
+c = st.selectbox( 'Select Graph', ['사고유형별 사망자수 비율'])
+if c == '사고유형별 사망자수 비율':
+    tmp = df.groupby('사고유형').sum()[['사망자수', '중상자수','경상자수']]
+    tmp['death_ratio'] = tmp['사망자수']/(tmp['사망자수'] + tmp['중상자수'] + tmp['경상자수'])
+    tmp['death_ratio'] = tmp['death_ratio'] * 100
+    fit = px.bar(data_frame=tmp,
+                 x = tmp['death_ratio'].sort_values(ascending=False).index,
+                 y = tmp['death_ratio'].sort_values(ascending=False),
+                 color = tmp['death_ratio'].sort_values(ascending=False).index
+                )
+    st.plotly_chart(fig)
