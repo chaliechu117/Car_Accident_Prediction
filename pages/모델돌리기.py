@@ -10,5 +10,5 @@ st.title('변수 설정을 통해 교통사고위헙도 예측하기')
 
 feat_list = df.columns.tolist()
 
-st.select_slider(feature_kor_dict["Education"], ['Bachelors', 'Masters', 'PHD'])
+
 
