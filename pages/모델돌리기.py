@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import math
+import time
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
@@ -72,7 +74,8 @@ st.write("변환된 변수")
 st.dataframe(test_data)
 
 if st.button("예측하기"):
-    st.write("예측중입니다. 잠시만 기다려주세요")
+    with st.spinner('Wait for it...'):
+        time.sleep(10)
     X = df.iloc[:,:-1]
     y = df['score']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
