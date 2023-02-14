@@ -85,7 +85,9 @@ if st.button("예측하기"):
         model.fit(X_train, y_train)
         valid_predict = model.predict(X_test)
         result = model.predict(test_data)
-
-    st.write("Valie RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
-    st.write('결과',result)
+    answer = result.iloc[0][0]
+#     st.write("Validation RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
+    st.write('교통사고 위험레벨:',answer)
+    
+    
     
