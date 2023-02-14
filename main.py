@@ -8,6 +8,7 @@ import seaborn as sns
 st.set_page_config(layout="wide")
 # For EDA
 df = pd.read_pickle('data/taas+weather.pkl')
+df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
 
 st.title("기상별 교통사고 위험율 예측")
 st.header("추음새 조")
@@ -42,6 +43,5 @@ if c == '사고유형별 사망자수 비율':
 elif c == '기상상태별 사고현황':
     fig = px.histogram(data_frame=df, x = '기상상태', color = df['사고유형'])
     st.plotly_chart(fig)
-    
     
 
