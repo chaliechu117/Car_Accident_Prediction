@@ -27,6 +27,7 @@ weather = st.multiselect('어떤 날씨 조건인가요?', df['기상상태'].un
 new_df = df[(df['요일'].isin(days)) & (df['지점'].isin(place))& (df['시간'].isin(time))& (df['사고내용'].isin(accident))& (df['기상상태'].isin(weather))]
 st.write(new_df)
 
+st.markdown('---')
 
 # For EDA
 # df = pd.read_pickle('data/taas+weather.pkl')
