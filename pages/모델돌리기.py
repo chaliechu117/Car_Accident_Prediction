@@ -102,7 +102,7 @@ if st.button("예측하기"):
 
     with col2:
         if answer < 4:
-            st.image('img/safe.jpeg')
+            st.image('img/safe.png')
         elif answer > 9:
             st.image('img/dangerous.png')
         else:
