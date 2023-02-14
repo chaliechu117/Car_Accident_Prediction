@@ -51,7 +51,7 @@ with col2:
 resp_data = pd.DataFrame(feat_dict)
 
 st.write("예측에 사용될 변수")
-st.dataframe(resp_data.rename(columns = ['NPA_CL','EVT_CL_CD', '강수량','풍속','습도','적설','전운량','지면온도','시정'], index = {0: "현재 선택값"}))
+st.dataframe(resp_data)
 
 NPA_CL_dic = {"충남청":19, "대전청":13,"세종청": 31}
 EVT_CL_CD_dic = {"교통사고":401,"음주운전":406,"교통불편":402,"교통위반":403,"인피도주":405,"사망.대형사고":404}
