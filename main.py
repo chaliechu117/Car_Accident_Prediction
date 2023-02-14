@@ -5,7 +5,13 @@ import streamlit as st
 import plotly.express as px
 import seaborn as sns
 
-st.set_page_config(layout="wide")
+st.set_page_config(
+    page_title="Car Accident Prediction",
+    page_icon="🚗",
+    layout="wide"
+)
+
+
 # For EDA
 df = pd.read_pickle('data/taas+weather.pkl')
 df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
