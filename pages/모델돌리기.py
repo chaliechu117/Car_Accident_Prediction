@@ -13,7 +13,7 @@ df = pd.read_pickle("data/score_df.pkl")
 st.set_page_config(
     page_title = "Car Accident Prediction",
     page_icon="🚗",
-    layout="wide")
+    layout="centered")
 
 st.title('변수 설정을 통해 교통사고위헙도 예측하기🚨')
 
