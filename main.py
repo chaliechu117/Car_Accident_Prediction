@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 title_name = []
-st.markdown("# 날씨 조건에 따른 교통사고 위험율을 예측해보아요 🚘")
+st.markdown("# 교통사고 현황을 알아봅시다🚘")
 st.header(":blue[by 추음새]")
 
 df = pd.read_pickle('data/taas+weather.pkl')
@@ -21,8 +21,8 @@ df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
 days = st.multiselect('무슨 요일이 궁금해요?', df['요일'].unique())
 place = st.multiselect('어느 지점이 궁금해요?', df['지점'].unique())
 accident = st.multiselect('어떤 내용의 사고인가요?', df['사고내용'].unique())
-time = st.multiselect('어떤 시간대가 궁금한가요?', df['시간'].unique())
-weather = st.multiselect('어떤 날씨?', df['기상상태'].unique())
+time = st.multiselect('어느 시간대가 궁금한가요?', df['시간'].unique())
+weather = st.multiselect('어떤 날씨 조건인가요?', df['기상상태'].unique())
 new_df = df[(df['요일'].isin(days)) & (df['지점'].isin(place))& (df['시간'].isin(time))& (df['사고내용'].isin(accident))& (df['기상상태'].isin(weather))]
 st.write(new_df)
 
@@ -30,11 +30,11 @@ st.write(new_df)
 # df = pd.read_pickle('data/taas+weather.pkl')
 # df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
 
-st.header("About the Data")
+# st.header("About the Data")
 
-st.markdown('##')
-st.subheader('Dataset Sample')
-st.write(df.head())
+# st.markdown('##')
+# st.subheader('Dataset Sample')
+# st.write(df.head())
 
 a = st.selectbox( 'Select Feature', ['사망자수', '중상자수', '경상자수', '부상신고자수', '사고유형', '법규위반','기상상태', '도로형태'])
 if a in ['사망자수', '중상자수', '경상자수', '부상신고자수']:
