@@ -22,6 +22,6 @@ if a in ['사망자수', '중상자수', '경상자수', '부상신고자수']:
     desc = pd.DataFrame(df[a].describe()).T
     st.dataframe(desc)
 else:
-    desc = pd.DataFrame(df[a].value_counts()).T
+    desc = pd.DataFrame(df[a].value_counts())
     st.dataframe(desc)
   
