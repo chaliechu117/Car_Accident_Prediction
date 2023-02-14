@@ -1,14 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
 import joblib
 
 df = pd.read_pickle("data/score_df.pkl")
 
-st.set_page_config(layout="centered")
-st.title('변수 설정을 통해 교통사고위헙도 예측하기')
+st.set_page_config(
+    page_title = "Car Accident Prediction",
+    page_icon="🚗",
+    layout="wide")
+
+# st.title('변수 설정을 통해 교통사고위헙도 예측하기🚨')
 
 st.markdown('##')
 st.subheader('변수 선택')
@@ -66,12 +68,3 @@ test_data['EVT_CL_CD'] = EVT_CL_CD_dic[feat_dict['EVT_CL_CD'][0]]
 
 st.write("변환된 변수")
 st.dataframe(test_data)
-
-if st.button("예측하기"):
-    X = df.iloc[:,:-1]
-    y = df['score']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = RandomForestRegressor()
-    model.fit(X_train, y_train)
-    train_predict = model.predict(X_train)
-    st.write("학습 정확도:",train_predict)
