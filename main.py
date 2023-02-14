@@ -25,11 +25,11 @@ time = st.multiselect('어느 시간대가 궁금한가요?', df['시간'].uniqu
 weather = st.multiselect('어떤 날씨 조건인가요?', df['기상상태'].unique())
 # new_df = df[(df['요일'].isin(days)) & (df['지점'].isin(place))& (df['시간'].isin(time))& (df['사고내용'].isin(accident))& (df['기상상태'].isin(weather))]
 # st.write(new_df)
-df = df[(df['요일'].isin(days)]
-df = df[(df['지점'].isin(place)]
-df = df[(df['시간'].isin(time)]
-df = df[(df['사고내용'].isin(accident)]
-df = df[(df['기상상태'].isin(weather)]
+df = df[df['요일'].isin(days)]
+df = df[df['지점'].isin(place)]
+df = df[df['시간'].isin(time)]
+df = df[df['사고내용'].isin(accident)]
+df = df[df['기상상태'].isin(weather)]
 # For EDA
 # df = pd.read_pickle('data/taas+weather.pkl')
 # df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
