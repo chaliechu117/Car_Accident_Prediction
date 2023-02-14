@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 title_name = []
-st.markdown("# 날씨 조건에 따른 교통사고 위험율을 예측해보아요 😀")
+st.markdown("# 날씨 조건에 따른 교통사고 위험율을 예측해보아요 🚘")
 st.balloons()
 
 # For EDA
