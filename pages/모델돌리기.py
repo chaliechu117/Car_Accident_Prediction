@@ -37,7 +37,7 @@ with col1:
     
 with col2:
     #사건종별코드
-    feat_dict['사고유형'].append(st.selectbox('사교유형', ["교통사고","음주운전","교통불편","교통위반","인피도주","사망.대형사고"]))
+    feat_dict['EVT_CL_CD'].append(st.selectbox('사교유형', ["교통사고","음주운전","교통불편","교통위반","인피도주","사망.대형사고"]))
     
     #전운량 : 0 ~ 10
     feat_dict['전운량'].append(st.slider('전운량',0,10,0,1))
