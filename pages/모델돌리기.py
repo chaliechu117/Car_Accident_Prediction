@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 
 df = pd.read_pickle("data/score_df.pkl")
 
