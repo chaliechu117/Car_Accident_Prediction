@@ -6,6 +6,7 @@ import math
 import time
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
 
 df = pd.read_pickle("data/score_df.pkl")
 
@@ -74,16 +75,16 @@ st.write("변환된 변수")
 st.dataframe(test_data)
 
 if st.button("예측하기"):
-    with st.spinner('Wait for it...'):
-        time.sleep(10)
     X = df.iloc[:,:-1]
     y = df['score']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     model = RandomForestRegressor()
-    model.fit(X_train, y_train)
-    valid_predict = model.predict(X_test)
-    st.write("Valie RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
     
-    result = model.predict(test_data)
+    with st.spinner('Wait for it...'):
+        model.fit(X_train, y_train)
+        valid_predict = model.predict(X_test)
+        result = model.predict(test_data)
+
+    st.write("Valie RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
     st.write('결과',result)
     
