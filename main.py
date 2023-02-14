@@ -27,7 +27,7 @@ else:
     
 st.markdown('##')
 st.subheader('Check Graph')
-c = st.selectbox( 'Select Graph', ['사고유형별 사망자수 비율'])
+c = st.selectbox( 'Select Graph', ['사고유형별 사망자수 비율', '기상상태별 사고현황', '기상상태별 사고 사망자비율'])
 if c == '사고유형별 사망자수 비율':
     tmp = df.groupby('사고유형').sum()[['사망자수', '중상자수','경상자수']]
     tmp['death_ratio'] = tmp['사망자수']/(tmp['사망자수'] + tmp['중상자수'] + tmp['경상자수'])
@@ -38,3 +38,10 @@ if c == '사고유형별 사망자수 비율':
                  color = tmp['death_ratio'].sort_values(ascending=False).index
                 )
     st.plotly_chart(fig)
+    
+elif c == '기상상태별 사고현황':
+    fig = px.histogram(data_frame=df, x = '기상상태', color = df['사고유형'])
+    st.plotly_chart(fig)
+    
+    
+
