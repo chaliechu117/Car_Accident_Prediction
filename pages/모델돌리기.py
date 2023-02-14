@@ -88,6 +88,14 @@ if st.button("예측하기"):
     answer = result.iloc[0][0]
 #     st.write("Validation RMSE': ", math.sqrt(mean_squared_error(valid_predict, y_test)))
     st.subheader(f'모델로 예측한 결과 현재 교통사고 위험레벨은 {answer} 입니다.')
+    
+    if answer < 4:
+            st.write('비교적 안전합니다')
+    elif answer > 9:
+        st.image('매우 위험합니다!!!')
+    else:
+        st.image('주의하셔야 합니다!')
+        
     col1, col2, col3 = st.columns([1, 10, 1])
     with col1:
         st.write(' ')
