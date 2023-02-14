@@ -13,14 +13,12 @@ st.set_page_config(
 
 title_name = []
 st.markdown("# 날씨 조건에 따른 교통사고 위험율을 예측해보아요 🚘")
-st.balloons()
+st.header("추음새 조")
 
 # For EDA
 df = pd.read_pickle('data/taas+weather.pkl')
 df['시간'] = df['사고일시'].apply(lambda x: x.split()[1].split(':')[0])
 
-st.title("기상별 교통사고 위험율 예측")
-st.header("추음새 조")
 st.header("About the Data")
 
 st.markdown('##')
