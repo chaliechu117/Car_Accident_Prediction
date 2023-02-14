@@ -27,7 +27,7 @@ else:
     
 st.markdown('##')
 st.subheader('Check Graph')
-c = st.selectbox( 'Select Graph', ['사고유형별 사망자수 비율', '기상상태별 사고현황', '기상상태별 사고 사망자비율'])
+c = st.selectbox( 'Select Graph', ['사고유형별 사망자수 비율', '기상상태별 사고현황'])
 if c == '사고유형별 사망자수 비율':
     tmp = df.groupby('사고유형').sum()[['사망자수', '중상자수','경상자수']]
     tmp['death_ratio'] = tmp['사망자수']/(tmp['사망자수'] + tmp['중상자수'] + tmp['경상자수'])
