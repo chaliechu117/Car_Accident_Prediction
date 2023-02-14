@@ -60,7 +60,7 @@ for a in test_data.columns[-7:]:
     test_data[a] = feat_dict[a]
     
 test_data['NPA_CL'] = NPA_CL_dic[feat_dict['NPA_CL'][0]]
-test_data['EVT_CL_CD'] = EVT_CL_CD_dic[feat_dict['EVT_CL_CD']][0]
+test_data['EVT_CL_CD'] = EVT_CL_CD_dic[feat_dict['EVT_CL_CD'][0]]
 
 st.write("변환된 변수")
 st.dataframe(test_data)
